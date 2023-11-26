@@ -20,4 +20,4 @@ lint:
 	poetry run pytest ./tests
 
 test-coverage:
-	pytest --cov=gendiff tests/
+	pytest --cov=gendiff ./tests/
