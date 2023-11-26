@@ -4,5 +4,8 @@
 ### Codeclimate maintainability status:
 <a href="https://codeclimate.com/github/andrewqa1/python-project-49/maintainability"><img src="https://api.codeclimate.com/v1/badges/66d54f76b0855b6bf753/maintainability" /></a>
 
-### Last build & test status:
+### Last build status:
 [![build](https://github.com/andrewqa1/python-project-50/actions/workflows/pyci.yml/badge.svg?branch=main)](https://github.com/andrewqa1/python-project-50/actions/workflows/pyci.yml)
+
+### Coverage status
+[![Coverage Status](https://coveralls.io/repos/github/andrewqa1/python-project-50/badge.svg?branch=main)](https://coveralls.io/github/andrewqa1/python-project-50?branch=main)
