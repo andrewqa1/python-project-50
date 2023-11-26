@@ -28,10 +28,7 @@ jobs:
           make lint
       - name: Test & publish code coverage
         run: |
-          make
+          make test-coverage
         if: github.ref_name == 'main'
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
