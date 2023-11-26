@@ -20,4 +20,6 @@ lint:
 	poetry run pytest ./tests
 
 test-coverage:
-	poetry run pytest --cov=gendiff ./tests/
+	poetry run coverage run --source=gendiff -m pytest tests
+	poetry run coverage report -m
+	poetry run coveralls
