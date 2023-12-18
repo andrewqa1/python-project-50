@@ -19,6 +19,10 @@ def test_generate_diff(extension: str):
     assert generate_diff(
         f'./tests/fixtures/file1.{extension}',
         f'./tests/fixtures/file2.{extension}',
+    ) == stylish_result
+    assert generate_diff(
+        f'./tests/fixtures/file1.{extension}',
+        f'./tests/fixtures/file2.{extension}',
         'plain'
     ) == plain_result
     assert generate_diff(
