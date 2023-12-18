@@ -20,7 +20,8 @@ def _stringify(data: Union[str, dict, bool, None], depth=0) -> str:
         results = '\n'.join(result)
         return f'{{\n{results}\n{_indent(depth)}  }}'
 
-    return data
+    if isinstance(data, str):
+        return str(data)
 
 
 def _render(difference: List[dict], depth=0) -> str:
