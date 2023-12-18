@@ -15,7 +15,6 @@ def _prepare_str(data: Union[str, dict, list, bool, None]) -> str:
     if isinstance(data, bool):
         return str(data).lower()
 
-    return str(data)
 
 
 def _render(difference: List[dict], root='') -> str:

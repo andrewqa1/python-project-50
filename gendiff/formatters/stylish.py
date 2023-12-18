@@ -9,7 +9,7 @@ def _stringify(data: Union[str, dict, bool, None], depth=0) -> str:
     if isinstance(data, bool):
         return str(data).lower()
 
-    if not data:
+    if data is None:
         return 'null'
 
     if isinstance(data, dict):
