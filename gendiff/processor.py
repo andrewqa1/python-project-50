@@ -1,31 +1,52 @@
-import json
-from typing import List, Tuple
+from typing import List
 
 
 def find_diffs(
-        first_file_path: str,
-        second_file_path: str
-) -> List[Tuple[str, str, str]]:
+        first_data: dict,
+        second_data: dict
+) -> List[dict]:
     difference = []
 
-    first_dict = json.load(open(first_file_path))
-    second_dict = json.load(open(second_file_path))
-
-    union_of_keys = set.union(set(first_dict.keys()), set(second_dict.keys()))
+    union_of_keys = set.union(set(first_data.keys()), set(second_data.keys()))
 
     for key in sorted(union_of_keys):
 
-        if key not in second_dict:
-            difference.append((key, first_dict[key], 'removed'))
+        if key not in second_data:
+            difference.append({
+                'key': key,
+                'value': first_data[key],
+                'type': 'removed'
+            })
 
-        elif key not in first_dict:
-            difference.append((key, second_dict[key], 'added'))
+        elif key not in first_data:
+            difference.append({
+                'key': key,
+                'value': second_data[key],
+                'type': 'added'
+            })
 
-        elif first_dict[key] != second_dict[key]:
-            difference.append((key, first_dict[key], 'removed'))
-            difference.append((key, second_dict[key], 'added'))
+        elif isinstance(first_data[key], dict) and isinstance(
+                second_data[key], dict
+        ):
+            difference.append({
+                'key': key,
+                'type': 'nested',
+                'children': find_diffs(first_data[key], second_data[key])
+            })
+
+        elif first_data[key] != second_data[key]:
+            difference.append({
+                'key': key,
+                'value1': first_data[key],
+                'value2': second_data[key],
+                'type': 'changed'
+            })
 
         else:
-            difference.append((key, first_dict[key], 'unchanged'))
+            difference.append({
+                'key': key,
+                'value': first_data[key],
+                'type': 'unchanged'
+            })
 
     return difference
