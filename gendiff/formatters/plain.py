@@ -12,7 +12,7 @@ def _prepare_str(data: Union[str, dict, list, bool, None]) -> str:
     if isinstance(data, bool):
         return str(data).lower()
 
-    return f'"{data}"'
+    return f'\'{data}\''
 
 
 def _render(difference: List[dict], root='') -> str:
@@ -23,12 +23,12 @@ def _render(difference: List[dict], root='') -> str:
         if dict_['type'] == 'nested':
             result += f'{_render(dict_["children"], root + dict_["key"])}'
         elif dict_['type'] == 'added':
-            result += f'Property "{root}{dict_["key"]}" ' \
+            result += f'Property \'{root}{dict_["key"]}\' ' \
                       f'was added with value: {_prepare_str(dict_["value"])}\n'
         elif dict_['type'] == 'removed':
-            result += f'Property "{root}{dict_["key"]}" was removed\n'
+            result += f'Property \'{root}{dict_["key"]}\' was removed\n'
         elif dict_['type'] == 'changed':
-            result += f'Property "{root}{dict_["key"]}" ' \
+            result += f'Property \'{root}{dict_["key"]}\' ' \
                       f'was updated. From {_prepare_str(dict_["value1"])} ' \
                       f'to {_prepare_str(dict_["value2"])}\n'
 
