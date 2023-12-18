@@ -8,4 +8,4 @@
 [![build](https://github.com/andrewqa1/python-project-50/actions/workflows/pyci.yml/badge.svg?branch=main)](https://github.com/andrewqa1/python-project-50/actions/workflows/pyci.yml)
 
 ### Coverage status
-[![Coverage Status](https://coveralls.io/repos/github/andrewqa1/python-project-50/badge.svg?branch=main)](https://coveralls.io/github/andrewqa1/python-project-50?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/andrewqa1/python-project-50/badge.svg?branch=main&kill_cache=1)](https://coveralls.io/github/andrewqa1/python-project-50?branch=main)
