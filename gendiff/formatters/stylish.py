@@ -1,11 +1,11 @@
-from typing import List, Union
+from typing import List, Union, Any
 
 
 def _indent(depth: int) -> str:
     return ' ' * (depth * 4 - 2)
 
 
-def _stringify(data: Union[str, dict, bool, None], depth=0) -> str:
+def _stringify(data: Any, depth=0) -> Any:
 
     if data is None:
         return 'null'
@@ -21,7 +21,7 @@ def _stringify(data: Union[str, dict, bool, None], depth=0) -> str:
         results = '\n'.join(result)
         return f'{{\n{results}\n{_indent(depth)}  }}'
 
-    return str(data).strip()
+    return data
 
 
 def _render(difference: List[dict], depth=0) -> str:

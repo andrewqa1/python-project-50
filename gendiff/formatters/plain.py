@@ -1,7 +1,7 @@
-from typing import List, Union
+from typing import List, Any
 
 
-def _prepare_str(data: Union[str, dict, list, bool, None]) -> str:
+def _prepare_str(data: Any) -> str | int | float:
 
     if data is None:
         return 'null'
@@ -11,6 +11,9 @@ def _prepare_str(data: Union[str, dict, list, bool, None]) -> str:
 
     if isinstance(data, bool):
         return str(data).lower()
+
+    if isinstance(data, int) or isinstance(data, float):
+        return data
 
     return f'\'{data}\''
 
