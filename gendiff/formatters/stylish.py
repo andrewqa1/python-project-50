@@ -1,4 +1,4 @@
-from typing import List, Union, Any
+from typing import List, Any
 
 
 def _indent(depth: int) -> str:
