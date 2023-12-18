@@ -16,7 +16,6 @@ def _prepare_str(data: Union[str, dict, list, bool, None]) -> str:
         return str(data).lower()
 
 
-
 def _render(difference: List[dict], root='') -> str:
     result = ''
     root += '.' if root else ''
