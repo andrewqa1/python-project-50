@@ -6,11 +6,12 @@ def _indent(depth: int) -> str:
 
 
 def _stringify(data: Union[str, dict, bool, None], depth=0) -> str:
-    if isinstance(data, bool):
-        return str(data).lower()
 
     if data is None:
         return 'null'
+
+    if isinstance(data, bool):
+        return str(data).lower()
 
     if isinstance(data, dict):
         result = []
@@ -20,8 +21,7 @@ def _stringify(data: Union[str, dict, bool, None], depth=0) -> str:
         results = '\n'.join(result)
         return f'{{\n{results}\n{_indent(depth)}  }}'
 
-    if isinstance(data, str):
-        return str(data)
+    return data
 
 
 def _render(difference: List[dict], depth=0) -> str:
@@ -44,7 +44,7 @@ def _render(difference: List[dict], depth=0) -> str:
             result += f'{_indent(depth)}+ {dict_["key"]}: ' \
                       f'{_stringify(dict_["value2"], depth)}\n'
         else:
-            result += f'{_indent(depth)}+ {dict_["key"]}: ' \
+            result += f'{_indent(depth)}  {dict_["key"]}: ' \
                       f'{_stringify(dict_["value"])}\n'
     return result
 
