@@ -46,7 +46,7 @@
             "children": [
               {
                 "key": "wow",
-                "value1": "",
+                "value1": 1,
                 "value2": "so much",
                 "type": "changed"
               }

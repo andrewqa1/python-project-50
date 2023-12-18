@@ -6,14 +6,13 @@ def _prepare_str(data: Union[str, dict, list, bool, None]) -> str:
     if data is None:
         return 'null'
 
-    if isinstance(data, str):
-        return f'"{data}"'
-
     if isinstance(data, dict) or isinstance(data, list):
         return '[complex value]'
 
     if isinstance(data, bool):
         return str(data).lower()
+
+    return f'"{data}"'
 
 
 def _render(difference: List[dict], root='') -> str:

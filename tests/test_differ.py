@@ -6,9 +6,9 @@ from gendiff.differ import generate_diff
 @pytest.mark.parametrize('extension', ['json', 'yaml'])
 def test_generate_diff(extension: str):
 
-    stylish_result = open('./tests/fixtures/stylish_result', 'r').read()
-    plain_result = open('./tests/fixtures/plain_result', 'r').read()
-    json_result = open('./tests/fixtures/json_result', 'r').read()
+    stylish_result = open('./tests/fixtures/result_stylish', 'r').read().strip()
+    plain_result = open('./tests/fixtures/result_plain', 'r').read().strip()
+    json_result = open('./tests/fixtures/result_json', 'r').read().strip()
 
     assert isinstance(generate_diff, Callable), 'generate_diff must be a function'
     assert generate_diff(
