@@ -22,5 +22,3 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.generate_diff:main"
-
-
