@@ -7,7 +7,7 @@ from gendiff.reader import get_data
 def generate_diff(
         first_file_path: str,
         second_file_path: str,
-        style: str
+        style: str = 'stylish'
 ) -> str:
 
     first_data = get_data(first_file_path)
