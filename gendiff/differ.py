@@ -16,6 +16,3 @@ def generate_diff(
     difference = find_diffs(first_data, second_data)
 
     return get_formatted_data(difference, style)
-
-
-# print(generate_diff('./../file1.json', './../file2.json', 'json'))
